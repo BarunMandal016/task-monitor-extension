@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Focus Guard | FocusSentinel",
+  "description": "The AI That Keeps You on Track",
+  "version": "1.0",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "src/background/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content/content.js"]
+    }
+  ],
+  "permissions": [
+    "history",
+    "management",
+    "storage",
+    "tabs",
+    "downloads",
+    "activeTab"
+  ],
+  "commands": {
+    "Ctrl+M": {
+      "suggested_key": {
+        "default": "Ctrl+M",
+        "mac": "Command+M"
+      },
+      "description": "Ctrl+M."
+    }
+  }
+}
